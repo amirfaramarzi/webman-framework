@@ -12,24 +12,17 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-namespace Webman\Exception;
+namespace Webman\Session;
 
-use Throwable;
-use Webman\Http\Request;
-use Webman\Http\Response;
+use FastRoute\Dispatcher\GroupCountBased;
+use FastRoute\RouteCollector;
+use Workerman\Protocols\Http\Session\FileSessionHandler as FileHandler;
 
-interface ExceptionHandlerInterface
+/**
+ * Class FileSessionHandler
+ * @package Webman
+ */
+class FileSessionHandler extends FileHandler
 {
-    /**
-     * @param Throwable $e
-     * @return mixed
-     */
-    public function report(Throwable $e);
 
-    /**
-     * @param Request $request
-     * @param Throwable $e
-     * @return Response
-     */
-    public function render(Request $request, Throwable $e): Response;
 }
